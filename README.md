@@ -22,3 +22,5 @@
 
 
 ```
+
+- Once you have added your db config as list above, go to the src folder from your terminal and execute `npm sequelize db:create`
