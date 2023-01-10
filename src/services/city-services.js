@@ -7,7 +7,7 @@ class CityService{
 
     async createCity(data){
         try {
-            const result = await this.cityRepository.createCity(data);
+            const city = await this.cityRepository.createCity(data);
             return city;
         } catch (error) {
             console.log("Something went wrong at service layer");
@@ -21,7 +21,7 @@ class CityService{
             return response;
         } catch (error) {
             console.log("Something went wrong at service layer");
-            throw {error};
+             {error};
         }
     }
     
