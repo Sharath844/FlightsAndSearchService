@@ -4,7 +4,9 @@ class CityRepository
 {
   async createCity( { name } ){
     try{
-        const city = await City.create({ name });
+        const city = await City.create({ 
+          name 
+        });
         return city;
     }
     catch(error){
@@ -32,7 +34,7 @@ class CityRepository
 
   async updateCity(cityId, data){
     try {
-        // The below approach also works but will not return updated oibject
+        // The below approach also works but will not return updated object
         // if we can using pg then returning: true can be used, else not
        // const city = await City.update(data, {
         //   where: {
@@ -57,6 +59,15 @@ class CityRepository
     } catch (error) {
         console.log("Something went wrong in the reository layer");
         throw {error};
+    }
+  }
+  async getAllCities(){
+    try {
+      const cities = await City.findAll();
+      return cities;
+    } catch (error) {
+      console.log("Something went wrong in the reository layer");
+      throw {error};
     }
   }
 }
