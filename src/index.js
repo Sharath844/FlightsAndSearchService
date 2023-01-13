@@ -4,6 +4,8 @@ const express = require('express');
 
 //importing the PORT from the serverConfig.js file
 const { PORT } = require('./config/serverConfig');
+const db = require('./models/index');
+//const { Airport, City } = require('./models/index');
 
 const ApiRoutes = require('./routes/index');
 
@@ -22,6 +24,9 @@ const setUpAndStartServer = async() =>{
    app.listen(PORT,async() =>{
       console.log(`Server started at ${PORT}`);
       
+      if(process.env.SYNC_DB) {
+         db.sequelize.sync({alter: true});
+      }
    });
 }
 setUpAndStartServer();
