@@ -1,4 +1,3 @@
-const { Model } = require("sequelize");
 
 function compareTime(timeString1, timeString2) {
 let dateTime1 = new Date(timeString1);
